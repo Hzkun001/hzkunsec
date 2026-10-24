@@ -1,0 +1,17 @@
+name: Skill proposal
+description: Propose a narrowly scoped skill or enhancement.
+title: "[Skill] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Proposed objective and boundaries
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: What would validate successful completion?
+    validations:
+      required: true
