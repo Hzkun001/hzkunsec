@@ -264,4 +264,4 @@ Stay within explicit authorization and obtain operator approval before intrusive
 - [Finding report](templates/finding-report.md) · [Progress template](templates/progress.md) · [Fictional example](examples/investigation-example.md)
 - [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [MIT license](LICENSE)
 
-Icons by Lucide, used under the [Lucide license](assets/LICENSE.lucide). See [asset sources](assets/README.md).
+Brand lettering uses Space Grotesk ([OFL](assets/LICENSE.space-grotesk)); workflow icons use Lucide ([license](assets/LICENSE.lucide)). [Logo variants and asset sources](assets/README.md).
