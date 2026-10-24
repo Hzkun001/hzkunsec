@@ -1,27 +1,28 @@
 <p align="center">
-  <img src="assets/logo.svg" width="112" height="112" alt="hzkunsec logo">
+  <img src="assets/banner.svg" width="900" alt="hzkunsec — evidence-driven security research">
 </p>
 
-<h1 align="center">hzkunsec</h1>
+<p align="center">
+  Four Agent Skills for authorized security research and code auditing.<br>
+  Trace the evidence, test the hypothesis, review the claim.
+</p>
 
-![hzkunsec — evidence-driven security skills](assets/banner.svg)
+<p align="center">
+  <a href="https://github.com/Hzkun001/hzkunsec/actions/workflows/validate.yml"><img src="https://github.com/Hzkun001/hzkunsec/actions/workflows/validate.yml/badge.svg?branch=main" alt="Skill validation status"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-202824" alt="License: MIT"></a>
+</p>
 
-Four Agent Skills for authorized security research, with human oversight.
+<p align="center">
+  <a href="#quick-start">Quick start</a> ·
+  <a href="#skills">Skills</a> ·
+  <a href="#workflow">Workflow</a> ·
+  <a href="#agent-harnesses">Agent harnesses</a> ·
+  <a href="#documentation">Documentation</a>
+</p>
 
-**No Evidence, No Finding. No Verification, No Completion.**
+## Quick start
 
-## Skills
-
-| Skill | Purpose |
-| --- | --- |
-| <img src="assets/icons/radar.svg" width="20" height="20" alt=""> [Recon](skills/recon/SKILL.md) | Map approved attack surface and record unknowns. |
-| <img src="assets/icons/code-xml.svg" width="20" height="20" alt=""> [Code Audit](skills/code-audit/SKILL.md) | Trace untrusted input across security boundaries. |
-| <img src="assets/icons/flask-conical.svg" width="20" height="20" alt=""> [PoC Validation](skills/poc-validation/SKILL.md) | Test hypotheses with minimal, reproducible evidence. |
-| <img src="assets/icons/file-check.svg" width="20" height="20" alt=""> [Evidence Review](skills/evidence-review/SKILL.md) | Check provenance, alternative explanations and claimed impact. |
-
-## Install
-
-Clone once and validate (macOS/Linux or a POSIX shell):
+Clone and validate with Git, Python 3 and a POSIX shell (macOS/Linux, WSL or Git Bash):
 
 ```bash
 git clone https://github.com/Hzkun001/hzkunsec.git
@@ -29,9 +30,52 @@ cd hzkunsec
 python3 scripts/validate_skills.py
 ```
 
-The commands below install these skills into an **existing harness**; they do not install the harness itself. Run global installation commands from this checkout. Choose one location per harness to avoid duplicate skill names. Check for existing same-named skills before copying; `cp -R` can overwrite them.
+Choose your [agent harness](#agent-harnesses) below to install the skills and use its invocation syntax. hzkunsec supplies Markdown workflows; the harness provides the model and tools.
+
+Then give the agent a bounded task:
+
+```text
+Use code-audit to review authentication in this authorized local repository.
+Trace untrusted input to sensitive operations and cite file paths and lines.
+Record missing evidence and alternative explanations. Do not run live tests.
+Keep findings as hypotheses until reproducible evidence supports the impact.
+```
+
+A useful report includes the source-to-sink trace, evidence references, validation status and what remains untested. See the [fictional investigation](examples/investigation-example.md) for an example of a claim that still needs validation.
+
+## Skills
+
+| Skill | When to use it | Evidence to keep |
+| --- | --- | --- |
+| <img src="assets/icons/radar.svg" width="20" height="20" alt=""> [Recon](skills/recon/SKILL.md) | Map the approved attack surface. | Scoped inventory, sources and unknowns. |
+| <img src="assets/icons/code-xml.svg" width="20" height="20" alt=""> [Code Audit](skills/code-audit/SKILL.md) | Inspect security boundaries in source code. | File/line citations and source-to-sink traces. |
+| <img src="assets/icons/flask-conical.svg" width="20" height="20" alt=""> [PoC Validation](skills/poc-validation/SKILL.md) | Test a specific hypothesis. | Baseline, minimal reproduction and observed results. |
+| <img src="assets/icons/file-check.svg" width="20" height="20" alt=""> [Evidence Review](skills/evidence-review/SKILL.md) | Challenge a draft finding before reporting. | Claim-to-evidence mapping and alternative explanations. |
+
+## Workflow
+
+**No Evidence, No Finding. No Verification, No Completion.**
+
+Select the skill for the current question; the sequence below is a possible investigation path, not an automatic pipeline.
+
+```text
+Recon → Code Audit → PoC Validation → Evidence Review
+```
+
+Every skill uses the same contract: Input → Preconditions → Steps → Evidence → Verification → Exit Criteria.
+
+| Status | Meaning |
+| --- | --- |
+| `HYPOTHESIS` | A plausible claim that still needs evidence. |
+| `NEEDS_VALIDATION` | Evidence is incomplete or reproduction is unresolved. |
+| `CONFIRMED` | Reproducible evidence supports the precise claimed impact. |
+| `REJECTED` | The claim is not supported by the reviewed evidence. |
+
+Scanner alerts and model agreement are not proof. Keep scope and final decisions under human oversight. Obtain operator approval before intrusive or state-changing tests, and store target details and secrets outside this repository. See the [security policy](SECURITY.md).
 
 ## Agent harnesses
+
+These commands install skills into an existing harness. Run global installation commands from the hzkunsec checkout. Choose one installation location per harness and check for same-named skills before copying; `cp -R` can overwrite them.
 
 Examples use `code-audit`. Replace it with `recon`, `poc-validation`, or `evidence-review` as needed. Enter invocation examples in the **agent's chat**, not your shell. Install all four to make them discoverable; load one relevant skill at a time.
 
@@ -250,18 +294,20 @@ Start a new session in the target project and ask the agent to list the availabl
 
 For another harness that supports Agent Skills, follow its documented discovery directory and ask it to use the skill by name. Without native support, ask it to read the checkout's `skills/code-audit/SKILL.md` directly; that is manual instruction loading, not native skill discovery.
 
-## Use
+## Documentation
 
-> Use code-audit to review this authorized local project's authentication boundary. Record source-to-sink evidence and unresolved questions. Validate impact before confirming a finding.
+| Guide | Covers |
+| --- | --- |
+| [Methodology](docs/methodology.md) | Investigation steps, approval points and completion criteria. |
+| [Ground truth](docs/ground-truth.md) | How to weigh observations, sources and model inference. |
+| [Architecture](docs/architecture.md) | Skill selection, harness responsibilities and human oversight. |
+| [Response format](docs/response-format.md) | A consistent report structure and explicit uncertainty. |
+| [Finding report](templates/finding-report.md) · [Progress template](templates/progress.md) | Reusable records for your private investigation workspace. |
 
-Every skill follows Input → Preconditions → Steps → Evidence → Verification → Exit Criteria. Scanner alerts and model agreement are not proof. Keep hypotheses separate from observations and report what remains untested.
+## Contributing
 
-Stay within explicit authorization and obtain operator approval before intrusive or state-changing tests. Store target details and secrets outside this repository.
+Keep each skill focused, preserve the evidence contract, and run `python3 scripts/validate_skills.py` before submitting a change. See [contributing guidelines](CONTRIBUTING.md), [open issues](https://github.com/Hzkun001/hzkunsec/issues) and the [validation workflow](.github/workflows/validate.yml).
 
-## Reference
+## License
 
-- [Methodology](docs/methodology.md) · [Ground truth](docs/ground-truth.md) · [Architecture](docs/architecture.md) · [Response format](docs/response-format.md)
-- [Finding report](templates/finding-report.md) · [Progress template](templates/progress.md) · [Fictional example](examples/investigation-example.md)
-- [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [MIT license](LICENSE)
-
-Brand lettering uses Space Grotesk ([OFL](assets/LICENSE.space-grotesk)); workflow icons use Lucide ([license](assets/LICENSE.lucide)). [Logo variants and asset sources](assets/README.md).
+[MIT](LICENSE). Brand lettering uses Space Grotesk ([OFL](assets/LICENSE.space-grotesk)); workflow icons use Lucide ([license](assets/LICENSE.lucide)). [Logo variants and asset sources](assets/README.md).
