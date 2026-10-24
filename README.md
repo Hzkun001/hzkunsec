@@ -1,4 +1,8 @@
-# hzkunsec
+<p align="center">
+  <img src="assets/logo.svg" width="112" height="112" alt="hzkunsec logo">
+</p>
+
+<h1 align="center">hzkunsec</h1>
 
 ![hzkunsec — evidence-driven security skills](assets/banner.svg)
 
@@ -10,10 +14,10 @@ Four Agent Skills for authorized security research, with human oversight.
 
 | Skill | Purpose |
 | --- | --- |
-| [Recon](skills/recon/SKILL.md) | Map approved attack surface and record unknowns. |
-| [Code Audit](skills/code-audit/SKILL.md) | Trace untrusted input across security boundaries. |
-| [PoC Validation](skills/poc-validation/SKILL.md) | Test hypotheses with minimal, reproducible evidence. |
-| [Evidence Review](skills/evidence-review/SKILL.md) | Check provenance, alternative explanations and claimed impact. |
+| <img src="assets/icons/radar.svg" width="20" height="20" alt=""> [Recon](skills/recon/SKILL.md) | Map approved attack surface and record unknowns. |
+| <img src="assets/icons/code-xml.svg" width="20" height="20" alt=""> [Code Audit](skills/code-audit/SKILL.md) | Trace untrusted input across security boundaries. |
+| <img src="assets/icons/flask-conical.svg" width="20" height="20" alt=""> [PoC Validation](skills/poc-validation/SKILL.md) | Test hypotheses with minimal, reproducible evidence. |
+| <img src="assets/icons/file-check.svg" width="20" height="20" alt=""> [Evidence Review](skills/evidence-review/SKILL.md) | Check provenance, alternative explanations and claimed impact. |
 
 ## Install
 
@@ -52,4 +56,4 @@ Stay within explicit authorization and obtain operator approval before intrusive
 - [Finding report](templates/finding-report.md) · [Progress template](templates/progress.md) · [Fictional example](examples/investigation-example.md)
 - [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [MIT license](LICENSE)
 
-Icon: Lucide [scan-line](https://github.com/lucide-icons/lucide/blob/7faf87628a1ad6175975bc595344337ce14a7db4/icons/scan-line.svg), used under the [Lucide license](assets/LICENSE.lucide). See [asset sources](assets/README.md).
+Icons by Lucide, used under the [Lucide license](assets/LICENSE.lucide). See [asset sources](assets/README.md).
