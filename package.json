@@ -1,0 +1,17 @@
+{
+  "name": "hzkunsec",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.12.0"
+  },
+  "scripts": {
+    "validate": "node scripts/validate-skills.ts",
+    "test": "node --test scripts/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "typescript": "7.0.2"
+  }
+}

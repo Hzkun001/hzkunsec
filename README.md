@@ -22,12 +22,13 @@
 
 ## Quick start
 
-Clone and validate with Git, Python 3 and a POSIX shell (macOS/Linux, WSL or Git Bash):
+Clone and validate with Git, Node.js 24.12+ (with npm) and a POSIX shell (macOS/Linux, WSL or Git Bash):
 
 ```bash
 git clone https://github.com/Hzkun001/hzkunsec.git
 cd hzkunsec
-python3 scripts/validate_skills.py
+npm ci
+npm run validate
 ```
 
 Choose your [agent harness](#agent-harnesses) below to install the skills and use its invocation syntax. hzkunsec supplies Markdown workflows; the harness provides the model and tools.
@@ -306,7 +307,7 @@ For another harness that supports Agent Skills, follow its documented discovery 
 
 ## Contributing
 
-Keep each skill focused, preserve the evidence contract, and run `python3 scripts/validate_skills.py` before submitting a change. See [contributing guidelines](CONTRIBUTING.md), [open issues](https://github.com/Hzkun001/hzkunsec/issues) and the [validation workflow](.github/workflows/validate.yml).
+Keep each skill focused, preserve the evidence contract, and run `npm run validate` before submitting a change. See [contributing guidelines](CONTRIBUTING.md), [open issues](https://github.com/Hzkun001/hzkunsec/issues) and the [validation workflow](.github/workflows/validate.yml).
 
 ## License
 

@@ -10,6 +10,6 @@ Thanks for helping improve hzkunsec. Open an issue before major architectural ch
 4. Include authorization, safety limits, human approval gates, and truthful failure states.
 5. Avoid invented tool outputs, secret material, active targets, and claims that model agreement proves impact.
 6. Prefer portable Markdown and built-in tools over unnecessary dependencies.
-7. Check links and run `python3 scripts/validate_skills.py`.
+7. With Node.js 24.12+, run `npm ci`, `npm run typecheck`, `npm test`, and `npm run validate`.
 
 Submit a pull request explaining motivation, evidence for changes, and backward compatibility. Do not upload real target evidence or sensitive logs.
