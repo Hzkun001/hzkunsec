@@ -1,72 +1,55 @@
 # hzkunsec
 
-**Evidence-driven offensive security Agent Skills** for authorized security research and bug bounty workflows.
+![hzkunsec — evidence-driven security skills](assets/banner.svg)
 
-> **No Evidence, No Finding. No Verification, No Completion.**
+Four Agent Skills for authorized security research, with human oversight.
 
-hzkunsec provides four small, composable skills for AI coding agents. It is designed for human-supervised investigations, not autonomous exploitation. An AI-generated claim, scanner alert, or a nonempty output file is never sufficient proof of a vulnerability.
+**No Evidence, No Finding. No Verification, No Completion.**
 
 ## Skills
 
-| Skill | Purpose | Entry point |
-| --- | --- | --- |
-| Recon | Map approved attack surface and document assumptions | [`skills/recon/SKILL.md`](skills/recon/SKILL.md) |
-| Code Audit | Trace untrusted input to security-relevant operations | [`skills/code-audit/SKILL.md`](skills/code-audit/SKILL.md) |
-| PoC Validation | Validate hypotheses in a safe, reproducible way | [`skills/poc-validation/SKILL.md`](skills/poc-validation/SKILL.md) |
-| Evidence Review | Challenge claims and verify evidence provenance | [`skills/evidence-review/SKILL.md`](skills/evidence-review/SKILL.md) |
+| Skill | Purpose |
+| --- | --- |
+| [Recon](skills/recon/SKILL.md) | Map approved attack surface and record unknowns. |
+| [Code Audit](skills/code-audit/SKILL.md) | Trace untrusted input across security boundaries. |
+| [PoC Validation](skills/poc-validation/SKILL.md) | Test hypotheses with minimal, reproducible evidence. |
+| [Evidence Review](skills/evidence-review/SKILL.md) | Check provenance, alternative explanations and claimed impact. |
 
-## Installation
-
-Clone the repo:
+## Install
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/hzkunsec.git
+git clone https://github.com/Hzkun001/hzkunsec.git
 cd hzkunsec
 python3 scripts/validate_skills.py
 ```
 
-Replace `YOUR_USERNAME` with the GitHub owner after publishing. You can also install directly from a local checkout.
-
-**Claude Code:** copy or symlink selected skill directories to `~/.claude/skills/`, or `.claude/skills/` inside a project. For example:
+Copy the skill folders you need into your agent's skills directory. For example:
 
 ```bash
+# Codex
+mkdir -p ~/.agents/skills
+cp -R skills/code-audit ~/.agents/skills/
+
+# Claude Code
 mkdir -p ~/.claude/skills
 cp -R skills/code-audit ~/.claude/skills/
 ```
 
-**Codex:** copy or symlink selected skill directories to `~/.agents/skills/` (or the skills location supported by your Codex installation). Example:
+For OpenCode, use the skills directory supported by your installed version.
+Load one relevant skill on demand.
 
-```bash
-mkdir -p ~/.agents/skills
-cp -R skills/code-audit ~/.agents/skills/
-```
+## Use
 
-**OpenCode:** use the Agent Skills directory supported by your installed version (typically `.opencode/skills/` for project-local skills); consult your version's documentation.
+> Use code-audit to review this authorized local project's authentication boundary. Record source-to-sink evidence and unresolved questions. Validate impact before confirming a finding.
 
-Skills should be **invoked on demand**. Do not preload every skill in the same conversation.
+Every skill follows Input → Preconditions → Steps → Evidence → Verification → Exit Criteria. Scanner alerts and model agreement are not proof. Keep hypotheses separate from observations and report what remains untested.
 
-## How to use
+Stay within explicit authorization and obtain operator approval before intrusive or state-changing tests. Store target details and secrets outside this repository.
 
-In an authorized project, ask your agent:
+## Reference
 
-> Use the code-audit skill to review this local project's authentication boundary. Record source-to-sink evidence, hypotheses, and unresolved questions; do not claim confirmed impact without validation.
+- [Methodology](docs/methodology.md) · [Ground truth](docs/ground-truth.md) · [Architecture](docs/architecture.md) · [Response format](docs/response-format.md)
+- [Finding report](templates/finding-report.md) · [Progress template](templates/progress.md) · [Fictional example](examples/investigation-example.md)
+- [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [MIT license](LICENSE)
 
-Each skill follows **Input → Preconditions → Steps → Evidence → Verification → Exit Criteria**. See [methodology](docs/methodology.md), [architecture](docs/architecture.md), and a [fictional example](examples/investigation-example.md).
-
-## Ground truth and state
-
-- Prefer primary documentation and observed artifacts to model intuition; see [ground truth](docs/ground-truth.md).
-- Copy [`templates/progress.md`](templates/progress.md) into the *investigation workspace* when persistent state is useful; don't track targets or secrets in this repository.
-- Use [`templates/finding-report.md`](templates/finding-report.md) to document only what was observed.
-
-## Responsible use
-
-Only perform tests with explicit authorization, within program rules and agreed rate limits. Obtain operator approval before intrusive or state-changing actions. Avoid harvesting secrets, persistence, or scope expansion. See [SECURITY.md](SECURITY.md).
-
-## Contributing
-
-Contributions are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md). All skills must pass `python3 scripts/validate_skills.py`.
-
-## License
-
-MIT — see [LICENSE](LICENSE).
+Icon: Lucide [scan-line](https://github.com/lucide-icons/lucide/blob/7faf87628a1ad6175975bc595344337ce14a7db4/icons/scan-line.svg), used under the [Lucide license](assets/LICENSE.lucide). See [asset sources](assets/README.md).
