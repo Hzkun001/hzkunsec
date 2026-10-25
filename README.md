@@ -23,19 +23,11 @@
 
 ## Project overview
 
-A one-minute introduction to the four skills and how they connect claims to evidence.
+Play the one-minute introduction to the four skills and how they connect claims to evidence.
 
-<p align="center">
-  <a href="https://raw.githubusercontent.com/Hzkun001/hzkunsec/main/assets/video/hzkunsec-overview.mp4">
-    <img src="assets/video/overview-poster.jpg" width="900" alt="Download the hzkunsec overview: four skills for evidence-driven security research">
-  </a>
-</p>
+https://github.com/user-attachments/assets/3f69f6e0-a077-4260-b51d-392d5a159e47
 
-<p align="center">
-  <a href="https://raw.githubusercontent.com/Hzkun001/hzkunsec/main/assets/video/hzkunsec-overview.mp4"><strong>Download overview ↓</strong></a> · 1:01 · MP4 · 4.1 MB
-</p>
-
-Click the preview to download the full MP4. Preview narration; the video illustrates a fictional local investigation. For installation commands, see [Quick start](#quick-start).
+**1:01 · Preview narration · Fictional local investigation.** [Download MP4](https://raw.githubusercontent.com/Hzkun001/hzkunsec/main/assets/video/hzkunsec-overview.mp4) · [Quick start](#quick-start)
 
 ## Quick start
 

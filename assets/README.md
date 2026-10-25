@@ -27,6 +27,6 @@ All SVGs are self-contained and contain no scripts or external resources.
 ## Overview video
 
 - [Overview video](video/hzkunsec-overview.mp4): maintainer-supplied introduction, approximately 61 seconds, H.264/AAC at 1280 × 720. Narration is marked as a preview in the source.
-- [Poster](video/overview-poster.jpg): a still extracted at 00:17.5 from the supplied video.
+- [GitHub attachment](https://github.com/user-attachments/assets/3f69f6e0-a077-4260-b51d-392d5a159e47): the same MP4 uploaded for native playback inside the README. The repository copy remains available as a download fallback.
 
 The web copy is compressed for repository delivery and fast-start playback. The original file is unchanged. The video explains a fictional local investigation and is not evidence of a live security test.
