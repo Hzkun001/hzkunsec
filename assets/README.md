@@ -23,3 +23,10 @@ The lettering is converted to SVG paths, so it does not require an installed fon
 Source: [lucide-icons/lucide](https://github.com/lucide-icons/lucide/tree/7faf87628a1ad6175975bc595344337ce14a7db4), revision `7faf87628a1ad6175975bc595344337ce14a7db4`. See [Lucide license](LICENSE.lucide).
 
 All SVGs are self-contained and contain no scripts or external resources.
+
+## Overview video
+
+- [Overview video](video/hzkunsec-overview.mp4): maintainer-supplied introduction, approximately 61 seconds, H.264/AAC at 1280 × 720. Narration is marked as a preview in the source.
+- [Poster](video/overview-poster.jpg): a still extracted at 00:17.5 from the supplied video.
+
+The web copy is compressed for repository delivery and fast-start playback. The original file is unchanged. The video explains a fictional local investigation and is not evidence of a live security test.

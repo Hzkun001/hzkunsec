@@ -13,12 +13,29 @@
 </p>
 
 <p align="center">
+  <a href="#project-overview">Watch overview</a> ·
   <a href="#quick-start">Quick start</a> ·
   <a href="#skills">Skills</a> ·
   <a href="#workflow">Workflow</a> ·
   <a href="#agent-harnesses">Agent harnesses</a> ·
   <a href="#documentation">Documentation</a>
 </p>
+
+## Project overview
+
+A one-minute introduction to the four skills and how they connect claims to evidence.
+
+<p align="center">
+  <a href="assets/video/hzkunsec-overview.mp4">
+    <img src="assets/video/overview-poster.jpg" width="900" alt="Watch the hzkunsec overview: four skills for evidence-driven security research">
+  </a>
+</p>
+
+<p align="center">
+  <a href="assets/video/hzkunsec-overview.mp4"><strong>Watch overview →</strong></a> · 1:01 · MP4 · 4.1 MB
+</p>
+
+Preview narration. The video uses a fictional local example; it does not demonstrate a confirmed vulnerability. For installation commands, see [Quick start](#quick-start).
 
 ## Quick start
 
